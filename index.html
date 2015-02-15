@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Incremental Game</title>
+
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+    <style>
+        body {
+            background-color:#555;
+        }
+        
+        .dashboard-widget {
+            background-color: #303030;
+            text-align: center;
+
+            height: 50px;
+            width: 100%;
+            line-height: 50px;
+            font-size: 1.5em;
+            color:azure;
+            margin: 0 auto;
+
+            margin-bottom: 3px;
+        }
+        #points-wrapper {
+            background-color: #303030;
+            text-align: center;
+            width: 100%;
+            height: 75px;
+            margin: 0 auto;
+
+            color: azure;
+            font-size: large;
+        }
+
+        #points-wrapper #points {
+            width: 100%;
+            height: 100%;
+            line-height: 75px;
+            font-size: 2em;
+        }
+
+
+         * {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        #coolDownBar{
+            height: 20px;
+            background-color: #909090;
+        }
+
+        .upgrade {
+            line-height: 50px;
+            color:#CECECE;
+            background-color: #303030;
+            height: 50px;
+            width: 100%;
+            padding-left:10px;
+            padding-right:10px;
+
+            margin-bottom:5px;
+        }
+
+        #reduceCooldownUpgrade{
+        }
+    </style>
+</head>
+<body class="container">
+
+<div class="col-md-1">
+
+</div>
+
+<div class="col-md-8">
+
+    <h3>Upgrades</h3>
+
+    <div class="upgrade" id="reduceCooldownUpgrade">
+        <span class="price-wrapper">Price:<span class="price"></span></span>
+        <span class="pull-right">Cooldown will be reduced by <span class="multiplier"></span> percent.</span>
+    </div>
+
+
+    <div class="upgrade" id="autoClickUpgrade">
+        <span class="price-wrapper">Price:<span class="price"></span></span>
+        <span class="pull-right">Number of points per second will increase by <span class="multiplier"></span> percent.</span>
+    </div>
+
+</div>
+
+<div class="col-md-3">
+
+    <h3 style="color: azure;">Click down here</h3>
+    <div id="points-wrapper">
+        <div id="points">
+
+
+        </div>
+
+    </div>
+    <div id="coolDownBar" style="width: 70%;">
+
+    </div>
+
+    <hr/>
+
+    <div class="dashboard-widget" id="ppc">
+        <span class="key">points/click:</span>
+        <span class="value"></span>
+    </div>
+    <div class="dashboard-widget" id="pps">
+        <span class="key">points/second:</span>
+        <span class="value"></span>
+    </div>
+    <div class="dashboard-widget" id="cooldownTime">
+        <span class="key">Cooldown time:</span>
+        <span class="value"></span>
+    </div>
+    <div class="dashboard-widget" id="cooldown">
+        <span class="key">Cooldown:</span>
+        <span class="value"></span>
+    </div>
+
+</div>
+
+
+
+<script src="render.js"></script>
+<script src="update.js"></script>
+<script src="click.js"></script>
+<script src="upgrades.js"></script>
+<script src="game.js"></script>
+
+
+<script>
+
+
+//    console.log(3);
+    a = document.getElementById('main-button');
+
+    $('#points-wrapper').click(function(event){
+        manClick();
+    });
+
+</script>
+</body>
+</html>
