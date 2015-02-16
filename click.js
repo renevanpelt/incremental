@@ -1,9 +1,15 @@
 var canClick = true;
-var pointsPerClick = 1
+var pointsPerClick = 1;
 var coolDownTime = 1000;
 var lastClick = -Infinity;
 var coolDown = 1;
 
+
+
+
+$('#points-wrapper').click(function(event){
+    manClick();
+});
 
 function manClick(){
 

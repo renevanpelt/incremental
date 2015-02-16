@@ -78,7 +78,7 @@ function newRCU() {
         coolDownTime *= reduceCooldownUpgrades[currentRCU].multiplier;
         priceCRU *= reduceCooldownUpgrades[currentRCU].priceMultiplier;
         currentRCU += 1;
-        drawRCU();
+        drawUpgrades();
     }
 }
 
@@ -89,20 +89,17 @@ function newACU() {
         pointsPerSecond *= autoClickUpgrades[currentACU].multiplier;
         priceACU *= autoClickUpgrades[currentACU].priceMultiplier;
         currentACU += 1;
-        drawACU();
+        drawUpgrades();
     }
 }
 
-function drawRCU() {
+function drawUpgrades() {
     if(currentRCU != reduceCooldownUpgrades.length){
         $('#reduceCooldownUpgrade .price').html(reduceCooldownUpgrades[currentRCU].priceMultiplier*priceCRU);
         $('#reduceCooldownUpgrade .multiplier').html(100-(reduceCooldownUpgrades[currentRCU].multiplier*100));
     } else {
         $('#reduceCooldownUpgrade').html('Wait until the next level.')
     }
-}
-
-function drawACU() {
     if(currentACU != autoClickUpgrades.length){
         $('#autoClickUpgrade .price').html(autoClickUpgrades[currentACU].priceMultiplier*priceACU);
         $('#autoClickUpgrade .multiplier').html((autoClickUpgrades[currentACU].multiplier*100-100));
@@ -110,6 +107,7 @@ function drawACU() {
         $('#autoClickUpgrade').html('Wait until the next level.')
     }
 }
+
 
 
 $('#reduceCooldownUpgrade').click(function(){
@@ -128,9 +126,6 @@ $('#autoClickUpgrade').click(function(){
     newACU();
 });
 
-
-drawRCU();
-drawACU();
-
+drawUpgrades()
 
 
