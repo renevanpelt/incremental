@@ -15,69 +15,88 @@
 
 </head>
 <body class="container">
-
-<div class="col-md-1">
-
-</div>
-
-<div class="col-md-8">
-
-    <h3>Upgrades</h3>
-
-    <div class="upgrade" id="reduceCooldownUpgrade">
-        <span class="price-wrapper">Price:<span class="price"></span></span>
-        <span class="pull-right">Cooldown will be reduced by <span class="multiplier"></span> percent.</span>
+<div class="row wrapper">
+    <div class="col-md-3">
+        <div class="upgrade" >
+            Level 1
+        </div>
     </div>
+    <div class="col-md-6">
+
+        <div class="top-widget-wrapper">
+            <div class="main-text">
+                Hello
+            </div>
+        </div>
+        <hr />
+        <div class="upgrade" id="reduceCooldownUpgrade">
+            <div class="row">
+                <div class="col-md-3 price-wrapper">Price:<span class="price"></span></div>
+                <div class="col-md-9">
+                    <span class="pull-right">Cooldown will be reduced by <span class="multiplier"></span> percent.</span>
+                </div>
+
+                <div id="CRU" class="down-right">auto-upgrade</div>
+            </div>
+        </div>
 
 
-    <div class="upgrade" id="autoClickUpgrade">
-        <span class="price-wrapper">Price:<span class="price"></span></span>
-        <span class="pull-right">Number of points per second will increase by <span class="multiplier"></span> percent.</span>
-    </div>
 
-</div>
+        <div class="upgrade" id="autoClickUpgrade">
+            <div class="row">
 
-<div class="col-md-3">
+                <div class="col-md-3 price-wrapper">Price:<span class="price"></span></div>
+                <div class="col-md-9">
+                    <span class="pull-right">Number of points per second will increase by <span class="multiplier"></span> percent.</span>
+                </div>
 
-    <h3 style="color: azure;">Click down here</h3>
-    <div id="points-wrapper">
-        <div id="points">
-
-
+                <div id="ACU" class="down-right">auto-upgrade</div>
+            </div>
         </div>
 
     </div>
-    <div id="coolDownBar" style="width: 70%;">
+
+    <div class="col-md-3">
+
+        <div class="top-widget-wrapper" id="points-wrapper">
+            <div class="main-text" id="points">
+
+
+            </div>
+
+        </div>
+        <div id="coolDownBar" style="width: 70%;">
+
+        </div>
+
+        <hr/>
+
+        <div class="dashboard-widget" id="ppc">
+            <span class="key">points/click:</span>
+            <span class="value"></span>
+        </div>
+        <div class="dashboard-widget" id="pps">
+            <span class="key">points/second:</span>
+            <span class="value"></span>
+        </div>
+        <div class="dashboard-widget" id="cooldownTime">
+            <span class="key">Cooldown time:</span>
+            <span class="value"></span>
+        </div>
+        <div class="dashboard-widget" id="cooldown">
+            <span class="key">Cooldown:</span>
+            <span class="value"></span>
+        </div>
 
     </div>
-
-    <hr/>
-
-    <div class="dashboard-widget" id="ppc">
-        <span class="key">points/click:</span>
-        <span class="value"></span>
-    </div>
-    <div class="dashboard-widget" id="pps">
-        <span class="key">points/second:</span>
-        <span class="value"></span>
-    </div>
-    <div class="dashboard-widget" id="cooldownTime">
-        <span class="key">Cooldown time:</span>
-        <span class="value"></span>
-    </div>
-    <div class="dashboard-widget" id="cooldown">
-        <span class="key">Cooldown:</span>
-        <span class="value"></span>
-    </div>
-
 </div>
-
 
 
 <script src="render.js"></script>
 <script src="update.js"></script>
 <script src="click.js"></script>
 <script src="upgrades.js"></script>
+<script src="auto_upgrade.js"></script>
 <script src="game.js"></script>
 
 

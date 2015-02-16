@@ -71,27 +71,6 @@ var autoClickUpgrades = [
 
 ];
 
-function newRCU() {
-
-    if(points >= priceCRU*reduceCooldownUpgrades[currentRCU].priceMultiplier ){
-        points -= priceCRU*reduceCooldownUpgrades[currentRCU].priceMultiplier;
-        coolDownTime *= reduceCooldownUpgrades[currentRCU].multiplier;
-        priceCRU *= reduceCooldownUpgrades[currentRCU].priceMultiplier;
-        currentRCU += 1;
-        drawUpgrades();
-    }
-}
-
-function newACU() {
-
-    if(points >= priceACU*autoClickUpgrades[currentACU].priceMultiplier ){
-        points -= priceACU*autoClickUpgrades[currentACU].priceMultiplier;
-        pointsPerSecond *= autoClickUpgrades[currentACU].multiplier;
-        priceACU *= autoClickUpgrades[currentACU].priceMultiplier;
-        currentACU += 1;
-        drawUpgrades();
-    }
-}
 
 function drawUpgrades() {
     if(currentRCU != reduceCooldownUpgrades.length){
@@ -109,23 +88,58 @@ function drawUpgrades() {
 }
 
 
+/*
+*   A lot of the structure of these listeners are very repetitive.
+   *   I wanted to do something about it, but couldn't come up
+   *   a sound method since future updates can have very different
+   *   effects, and I didn't want to use an eval solution.
+   *   Then I figured that since not that much upgrade types
+   *   will be added, it'll be a little code debt.
+*
+* */
 
-$('#reduceCooldownUpgrade').click(function(){
-
+ $('#reduceCooldownUpgrade').click(function(){
     if(currentRCU == reduceCooldownUpgrades.length){
         return 0;
     }
-    newRCU();
+    newCRU();
 });
+
+function newCRU(){
+    if(points >= priceCRU*reduceCooldownUpgrades[currentRCU].priceMultiplier ){
+        points -= priceCRU*reduceCooldownUpgrades[currentRCU].priceMultiplier;
+        coolDownTime *= reduceCooldownUpgrades[currentRCU].multiplier;
+        priceCRU *= reduceCooldownUpgrades[currentRCU].priceMultiplier;
+        currentRCU += 1;
+        drawUpgrades();
+    }
+}
 
 $('#autoClickUpgrade').click(function(){
 
     if(currentACU == reduceCooldownUpgrades.length){
         return 0;
     }
+
     newACU();
 });
 
-drawUpgrades()
+function newACU(){
+    if(points >= priceACU*autoClickUpgrades[currentACU].priceMultiplier ){
+        points -= priceACU*autoClickUpgrades[currentACU].priceMultiplier;
+        pointsPerSecond *= autoClickUpgrades[currentACU].multiplier;
+        priceACU *= autoClickUpgrades[currentACU].priceMultiplier;
+        currentACU += 1;
+        drawUpgrades();
+    }
+
+}
+
+/*
+* This function will be run every time an upgrade is bought so
+* it doesn't need to run in the render function. But it does
+* need to be run initially here.
+* */
+drawUpgrades();
 
 
