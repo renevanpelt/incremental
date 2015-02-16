@@ -102,7 +102,7 @@ function drawUpgrades() {
     }
     if(currentACU != autoClickUpgrades.length){
         $('#autoClickUpgrade .price').html(autoClickUpgrades[currentACU].priceMultiplier*priceACU);
-        $('#autoClickUpgrade .multiplier').html((autoClickUpgrades[currentACU].multiplier*100-100));
+        $('#autoClickUpgrade .multiplier').html((autoClickUpgrades[currentACU].multiplier*100));
     } else {
         $('#autoClickUpgrade').html('Wait until the next level.')
     }
