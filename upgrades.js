@@ -53,19 +53,19 @@ var autoClickUpgrades = [
         priceMultiplier: 3
     },
     {
+        multiplier:2,
+        priceMultiplier: 3
+    },
+    {
         multiplier:1.7,
         priceMultiplier: 3
     },
     {
-        multiplier:1.9,
+        multiplier:1.6,
         priceMultiplier: 3
     },
     {
-        multiplier:1.9,
-        priceMultiplier: 3
-    },
-    {
-        multiplier:1.9,
+        multiplier:1.5,
         priceMultiplier: 3
     }
 
