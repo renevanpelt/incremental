@@ -49,6 +49,7 @@ body {
     height: 20px;
     background-color: #909090;
     top:-20px;
+    width:100%;
 }
 
 .upgrade {

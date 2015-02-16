@@ -7,6 +7,6 @@ render = function(){
 
 
     $('#cooldown .value').html(Math.floor(coolDown*100) + '%');
-    $('#coolDownBar').css('width', Math.floor(coolDown * 100) + '%') ;
+//    $('#coolDownBar').css('width', Math.floor(coolDown * 100) + '%') ;
 
 };

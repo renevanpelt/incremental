@@ -18,10 +18,10 @@ function manClick(){
     if(canClick){
         points += pointsPerClick;
         lastClick = Date.now();
-        $('.coolDownBar')/*.css('width',0);
-        $('.coolDownBar').animate({
+        $('#coolDownBar').css('width',0);
+        $('#coolDownBar').animate({
             width: "100%"
-        },time);*/
+        },coolDownTime);
     }
 
 }
