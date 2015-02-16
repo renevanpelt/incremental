@@ -4,9 +4,15 @@ currentUpgrade = 'none';
 
 function autoUpgrade(){
     if(currentUpgrade == 'ACU'){
+        if(currentACU == reduceCooldownUpgrades.length){
+            return 0;
+        }
         newACU();
     }
     if(currentUpgrade == 'CRU'){
+        if(currentRCU == reduceCooldownUpgrades.length){
+            return 0;
+        }
         newCRU();
 
     }

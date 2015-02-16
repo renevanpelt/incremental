@@ -18,18 +18,23 @@ function manClick(){
     if(canClick){
         points += pointsPerClick;
         lastClick = Date.now();
+        $('.coolDownBar')/*.css('width',0);
+        $('.coolDownBar').animate({
+            width: "100%"
+        },time);*/
     }
+
 }
 
 
 
 var pointsPerSecond = 0.1;
-var lastAutoClick = Date.now();
 
+var lastAutoClick = Date.now();
 function autoClick(){
 
-    var deltaAutoClick = (Date.now() - lastAutoClick)/1000;
 
+    var deltaAutoClick = (Date.now() - lastAutoClick)/1000;
     points += pointsPerSecond*deltaAutoClick;
     lastAutoClick = Date.now();
 }
