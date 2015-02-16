@@ -48,6 +48,7 @@ body {
 #coolDownBar{
     height: 20px;
     background-color: #909090;
+    top:-20px;
 }
 
 .upgrade {
@@ -79,3 +80,17 @@ body {
     color: #CECECE;
 }
 
+.bulletin-item{
+    background-color: #606060;
+    color: #AAAAAA;
+    margin-bottom: 5px;
+}
+
+.bulletin-item h4 {
+    color:#CECECE;
+}
+
+
+.bulletin-item a {
+    color:#CECECE;
+}
