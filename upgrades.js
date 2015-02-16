@@ -1,5 +1,5 @@
 var upgrades = [];
-
+var priceMultiplier = 1;
 var currentRCU = 0;
 var priceCRU = 1;
 
@@ -31,6 +31,18 @@ var reduceCooldownUpgrades = [
     {
         multiplier:0.5,
         priceMultiplier: 3
+    },
+    {
+        multiplier:0.5,
+        priceMultiplier: 3
+    },
+    {
+        multiplier:0.5,
+        priceMultiplier: 3
+    },
+    {
+        multiplier:0.5,
+        priceMultiplier: 3
     }
 
 ];
@@ -45,15 +57,15 @@ var autoClickUpgrades = [
         priceMultiplier:10
     },
     {
-        multiplier:3,
+        multiplier:4,
         priceMultiplier:2
     },
     {
-        multiplier:2,
+        multiplier:3,
         priceMultiplier: 3
     },
     {
-        multiplier:2,
+        multiplier:2.5,
         priceMultiplier: 3
     },
     {
@@ -67,21 +79,45 @@ var autoClickUpgrades = [
     {
         multiplier:1.5,
         priceMultiplier: 3
+    },
+    {
+        multiplier:1.5,
+        priceMultiplier: 3
+    },
+    {
+        multiplier:1.5,
+        priceMultiplier: 3
+    },
+    {
+        multiplier:1.5,
+        priceMultiplier: 3
+    },
+    {
+        multiplier:1.5,
+        priceMultiplier: 3
+    },
+    {
+        multiplier:1.5,
+        priceMultiplier: 3
+    },
+    {
+        multiplier:1.5,
+        priceMultiplier: 3
     }
 
 ];
 
 
 function drawUpgrades() {
-    if(currentRCU != reduceCooldownUpgrades.length){
-        $('#reduceCooldownUpgrade .price').html(reduceCooldownUpgrades[currentRCU].priceMultiplier*priceCRU);
+    if(currentRCU != reduceCooldownUpgrades.length /*|| currentLevel == levels.length*/){
+        $('#reduceCooldownUpgrade .price').html(RCUprice());
         $('#reduceCooldownUpgrade .multiplier').html(100-(reduceCooldownUpgrades[currentRCU].multiplier*100));
     } else {
         $('#reduceCooldownUpgrade').html('Wait until the next level.')
     }
-    if(currentACU != autoClickUpgrades.length){
-        $('#autoClickUpgrade .price').html(autoClickUpgrades[currentACU].priceMultiplier*priceACU);
-        $('#autoClickUpgrade .multiplier').html((autoClickUpgrades[currentACU].multiplier*100));
+    if(currentACU != autoClickUpgrades.length /*|| currentLevel == levels.length*/){
+        $('#autoClickUpgrade .price').html(ACUprice());
+        $('#autoClickUpgrade .multiplier').html((autoClickUpgrades[currentACU].multiplier*100-100));
     } else {
         $('#autoClickUpgrade').html('Wait until the next level.')
     }
@@ -102,22 +138,28 @@ function drawUpgrades() {
     if(currentRCU == reduceCooldownUpgrades.length){
         return 0;
     }
-    newCRU();
+    newRCU();
 });
 
-function newCRU(){
-    if(points >= priceCRU*reduceCooldownUpgrades[currentRCU].priceMultiplier ){
-        points -= priceCRU*reduceCooldownUpgrades[currentRCU].priceMultiplier;
-        coolDownTime *= reduceCooldownUpgrades[currentRCU].multiplier;
-        priceCRU *= reduceCooldownUpgrades[currentRCU].priceMultiplier;
-        currentRCU += 1;
+function newRCU(){
+    if(currentRCU != reduceCooldownUpgrades.length){
+        if(points >= RCUprice()){
+            points -= priceCRU*reduceCooldownUpgrades[currentRCU].priceMultiplier;
+            coolDownTime *= reduceCooldownUpgrades[currentRCU].multiplier;
+            priceCRU *= reduceCooldownUpgrades[currentRCU].priceMultiplier;
+            if(currentRCU != reduceCooldownUpgrades.length){
+
+                currentRCU += 1;
+            }
+        }
         drawUpgrades();
     }
 }
 
 $('#autoClickUpgrade').click(function(){
 
-    if(currentACU == reduceCooldownUpgrades.length){
+    if(currentACU == autoClickUpgrades.length){
+        console.log(3333);
         return 0;
     }
 
@@ -125,12 +167,15 @@ $('#autoClickUpgrade').click(function(){
 });
 
 function newACU(){
-    if(points >= priceACU*autoClickUpgrades[currentACU].priceMultiplier ){
-        points -= priceACU*autoClickUpgrades[currentACU].priceMultiplier;
-        pointsPerSecond *= autoClickUpgrades[currentACU].multiplier;
-        priceACU *= autoClickUpgrades[currentACU].priceMultiplier;
-        currentACU += 1;
-        drawUpgrades();
+    if(currentACU != autoClickUpgrades.length){
+        if(points >= ACUprice()){
+            points -= priceACU*autoClickUpgrades[currentACU].priceMultiplier;
+            pointsPerSecond *= autoClickUpgrades[currentACU].multiplier;
+            priceACU *= autoClickUpgrades[currentACU].priceMultiplier;
+
+                currentACU += 1;
+            drawUpgrades();
+        }
     }
 
 }
@@ -140,6 +185,10 @@ function newACU(){
 * it doesn't need to run in the render function. But it does
 * need to be run initially here.
 * */
-drawUpgrades();
 
-
+function RCUprice(){
+    return priceCRU*reduceCooldownUpgrades[currentRCU].priceMultiplier;
+}
+function ACUprice(){
+    return priceACU*autoClickUpgrades[currentACU].priceMultiplier;
+}

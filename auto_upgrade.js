@@ -13,7 +13,7 @@ function autoUpgrade(){
         if(currentRCU == reduceCooldownUpgrades.length){
             return 0;
         }
-        newCRU();
+        newRCU();
 
     }
     if(currentUpgrade == 'none'){

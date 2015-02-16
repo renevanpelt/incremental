@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+    <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
     <title>Incremental Game</title>
 
@@ -11,7 +12,11 @@
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
-
+    <style>
+        body{
+            font-family: 'Oxygen', sans-serif;
+        }
+    </style>
 
 </head>
 <body class="container">
@@ -53,19 +58,25 @@
 
     </div>
     <div class="col-md-6    ">
-        <!---->
-        <!--<div class="top-widget-wrapper">-->
-            <!--<div class="main-text">-->
-                <!--Hello-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<hr />-->
+
+        <div class="top-widget-wrapper level-wrapper">
+            <div class="row">
+                <div class="col-md-3 main-text" style="padding-left: 20px;">
+                    Level 1
+                </div>
+                <br />
+                <small style="color: #666">Coming soon</small>
+            </div>
+
+
+        </div>
+        <hr />
 
         <div class="upgrade" id="reduceCooldownUpgrade">
             <div class="row">
-                <div class="col-md-3 price-wrapper">Price:<span class="price"></span></div>
+                <div class="col-md-3 price-wrapper">Price: <span class="price"></span></div>
                 <div class="col-md-9">
-                    <span class="pull-right">Cooldown will be reduced by <span class="multiplier"></span> percent.</span>
+                    <span class="pull-right">Cooldown - <span class="multiplier"></span> %.</span>
                 </div>
 
                 <div id="CRU" class="down-right">auto-upgrade</div>
@@ -77,9 +88,9 @@
         <div class="upgrade" id="autoClickUpgrade">
             <div class="row">
 
-                <div class="col-md-3 price-wrapper">Price:<span class="price"></span></div>
+                <div class="col-md-3 price-wrapper">Price: <span class="price"></span></div>
                 <div class="col-md-9">
-                    <span class="pull-right">Number of points per second will increase by <span class="multiplier"></span> percent.</span>
+                    <span class="pull-right">points/second + <span class="multiplier"></span> %.</span>
                 </div>
 
                 <div id="ACU" class="down-right">auto-upgrade</div>
@@ -114,8 +125,8 @@
         </div>
         <div class="dashboard-widget" id="cooldownTime">
             <span class="key">Cooldown time:</span>
-            <span class="value"></span>
-        </div>
+                <span class="value"></span>
+            </div>
         <div class="dashboard-widget" id="cooldown">
             <span class="key">Cooldown:</span>
             <span class="value"></span>
@@ -125,12 +136,13 @@
 </div>
 
 
+<script src="game.js"></script>
 <script src="render.js"></script>
 <script src="update.js"></script>
 <script src="click.js"></script>
 <script src="upgrades.js"></script>
+<script src="levels.js"></script>
 <script src="auto_upgrade.js"></script>
-<script src="game.js"></script>
 
 
 <script>
