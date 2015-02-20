@@ -109,17 +109,22 @@ var autoClickUpgrades = [
 
 
 function drawUpgrades() {
+    console.log(currentACU);
     if(currentRCU != reduceCooldownUpgrades.length /*|| currentLevel == levels.length*/){
-        $('#reduceCooldownUpgrade .price').html(RCUprice());
+        $('#reduceCooldownUpgrade').show();
+        $('#reduceCooldownUpgrade .price').html(Beautify(RCUprice()));
         $('#reduceCooldownUpgrade .multiplier').html(100-(reduceCooldownUpgrades[currentRCU].multiplier*100));
     } else {
-        $('#reduceCooldownUpgrade').html('Wait until the next level.')
+        $('#reduceCooldownUpgrade').hide();
+        $('#reduceCooldownUpgrade .price').html('Wait until the next level.')
+        $('#reduceCooldownUpgrade .multiplier').html('');
     }
     if(currentACU != autoClickUpgrades.length /*|| currentLevel == levels.length*/){
-        $('#autoClickUpgrade .price').html(ACUprice());
+        $('#autoClickUpgrade').show();
+        $('#autoClickUpgrade .price').html(Beautify(ACUprice()));
         $('#autoClickUpgrade .multiplier').html((autoClickUpgrades[currentACU].multiplier*100-100));
     } else {
-        $('#autoClickUpgrade').html('Wait until the next level.')
+        $('#autoClickUpgrade').hide();
     }
 }
 

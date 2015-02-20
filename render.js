@@ -1,6 +1,6 @@
 
 render = function(){
-    $('#points').html(Math.floor(points));
+    $('#points').html(Beautify(Math.floor(points)));
     $('#ppc .value').html(pointsPerClick.toFixed(1));
     $('#pps .value').html(pointsPerSecond.toFixed(1));
     $('#cooldownTime .value').html(Math.round(coolDownTime).toFixed(2)/1000+ ' sec.');

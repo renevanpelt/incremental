@@ -4,7 +4,7 @@ currentUpgrade = 'none';
 
 function autoUpgrade(){
     if(currentUpgrade == 'ACU'){
-        if(currentACU == reduceCooldownUpgrades.length){
+        if(currentACU == autoClickUpgrades.length){
             return 0;
         }
         newACU();

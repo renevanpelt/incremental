@@ -1,4 +1,3 @@
-/*
 
 var levels = [
     {
@@ -12,6 +11,25 @@ var levels = [
         pointsPerClick:13,
         ACU:1,
         priceMultiplier: 14
+    }
+    ,
+    {
+        cost: 10000000,
+        pointsPerClick:108,
+        ACU:7,
+        priceMultiplier: 60
+    },
+    {
+        cost: 40000000,
+        pointsPerClick:800,
+        ACU:30,
+        priceMultiplier: 30
+    },
+    {
+        cost: 100000000,
+        pointsPerClick:10000,
+        ACU:100,
+        priceMultiplier: 30
     }
 
 ];
@@ -40,5 +58,18 @@ function nextLevel(){
 }
 
 function drawLevels(){
+    if(currentLevel < levels.length){
 
-}*/
+        $('#level_price').html(Beautify(levels[currentLevel].cost));
+    } else {
+        $('#level_price_wrapper').html("You are a hero.");
+    }
+    $('#level_widget').html(currentLevel+1);
+
+}
+
+drawLevels();
+
+$('.level-wrapper').click(function(){
+    nextLevel();
+});
