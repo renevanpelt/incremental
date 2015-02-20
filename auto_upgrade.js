@@ -17,7 +17,7 @@ function autoUpgrade(){
 
     }
     if(currentUpgrade == 'none'){
-
+        return 0;
     }
 }
 
@@ -25,6 +25,12 @@ function autoUpgrade(){
 $('.down-right').click(function(){
     console.log(this);
     $('.upgrade .active').removeClass("active");
-    currentUpgrade = $(this).prop('id');
-    $(this).addClass('active');
+
+    if (currentUpgrade == $(this).prop('id')){
+        currentUpgrade = 'none';
+    } else {
+        currentUpgrade = $(this).prop('id');
+        $(this).addClass('active');
+        
+    }
 });
