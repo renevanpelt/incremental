@@ -178,7 +178,7 @@ function newACU(){
             pointsPerSecond *= autoClickUpgrades[currentACU].multiplier;
             priceACU *= autoClickUpgrades[currentACU].priceMultiplier;
 
-                currentACU += 1;
+            currentACU += 1;
             drawUpgrades();
         }
     }
@@ -192,8 +192,8 @@ function newACU(){
 * */
 
 function RCUprice(){
-    return priceCRU*reduceCooldownUpgrades[currentRCU].priceMultiplier;
+    return priceCRU*reduceCooldownUpgrades[currentRCU].priceMultiplier*priceMultiplier;
 }
 function ACUprice(){
-    return priceACU*autoClickUpgrades[currentACU].priceMultiplier;
+    return priceACU*autoClickUpgrades[currentACU].priceMultiplier*priceMultiplier;
 }

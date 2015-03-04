@@ -54,6 +54,17 @@ function nextLevel(){
         currentACU = 0;
         drawUpgrades();
         drawLevels();
+        if(!(levels.length == currentLevel)){
+            priceMultiplier = levels[currentLevel].priceMultiplier;
+        }
+        $('.item').remove();
+        for(i=0;i<items.length;i++){
+
+            console.log(399999999933333333333333);
+            items[i].drawn = false;
+            items[i].bought = false;
+
+        }
     }
 }
 
